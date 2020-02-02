@@ -23,7 +23,7 @@ public class EmployeeController
     @Autowired
     private EmployeeDAO employeeDao;
     
-    @GetMapping(path="/", produces = "application/json")
+    @GetMapping(path="/RIP", produces = "application/json")
     public Employees getEmployees() 
     {
         return employeeDao.getAllEmployees();
