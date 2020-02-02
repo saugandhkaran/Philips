@@ -1,13 +1,4 @@
 # Maven
-- task: GitHubRelease@1
-  inputs:
-    gitHubConnection: 'Akirahpola'
-    repositoryName: 'Akirahpola/Philips'
-    action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'gitTag'
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -19,6 +10,16 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'Akirahpola'
+    repositoryName: 'Akirahpola/Philips'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'gitTag'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
+    
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
